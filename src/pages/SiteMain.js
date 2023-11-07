@@ -7,7 +7,7 @@ import { useColorModeValue, Heading, Stack, Box, Flex, Spacer} from "@chakra-ui/
 import CardEditorForm from "../components/CardEditorForm";
 import SideBar from '../components/SideBar';
 import CardContentBox from '../components/CardContentBox';
-
+import CardPreviewBox from '../components/CardPreviewBox';
 
 const PostCardEditor = () => {
 
@@ -23,7 +23,9 @@ const PostCardPreview = () => {
     return(
 
         <>
-                    <CardContentBox header={'Postcard Preview'} />
+                    <CardContentBox children={<CardPreviewBox />} 
+                   // header={subject}
+                    />
         </>
     )
 }

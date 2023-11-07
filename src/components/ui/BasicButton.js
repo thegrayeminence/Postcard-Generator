@@ -1,13 +1,12 @@
-import { Icon, Button, Box, useColorModeValue } from "@chakra-ui/react";
-import { HamburgerIcon, ArrowRightIcon, QuestionIcon ,  } from "@chakra-ui/icons";
+import {Button, useColorModeValue } from "@chakra-ui/react";
 
 
-export default function BasicButton() {
+export default function BasicButton({children}) {
 
 
   return (
   <>
-  <Box>
+
       <Button
         as={'a'} variant='outline' size='lg'
         px={4} variant='outline' size='lg' color={'white'} background={useColorModeValue('whiteAlpha.300')}
@@ -17,13 +16,10 @@ export default function BasicButton() {
           bg: useColorModeValue(), backdropFilter: 'auto', borderColor: 'pink.200',
           backdropBlur: '10px', transform: 'scale(1.1)'
         }}>
-          <Icon
-          as={QuestionIcon} w={6} height={4}
-          position='relative'
-          _hover={{ transform: 'scale(1.1)' }} /> 
+          {children}
       </Button>
 
-    </Box>
+
     </>
     );
 };

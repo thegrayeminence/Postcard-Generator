@@ -6,9 +6,10 @@ import {
   Stack, useColorMode, useDisclosure
 }
   from "@chakra-ui/react";
-import { MoonIcon, SunIcon, EditIcon, DownloadIcon, PlusSquareIcon, SettingsIcon, CloseIcon, AddIcon, AiOutlinePlusSquare } from "@chakra-ui/icons";
+import { MoonIcon, SunIcon, ViewIcon, EditIcon, DownloadIcon, PlusSquareIcon, SettingsIcon, CloseIcon, AddIcon, AiOutlinePlusSquare, QuestionIcon } from "@chakra-ui/icons";
 
 import BasicButton from './ui/BasicButton';
+import NavBarButton from './ui/NavBarButton';
 
 import Logo from "./layout/Logo";
 
@@ -69,42 +70,18 @@ function NavBar(props) {
       <NavBarContainer >
   
       <Stack direction={'row'} spacing={6}>
-        <BasicButton />
+     
         <NightModeToggleButton/>
+        <BasicButton children={<ViewIcon/>}/>
         </Stack>
+
         <Logo />
+
         <Stack direction={'row'} spacing={7}>
-          <Button px={4} variant='outline' size='lg' color={'white'} background={useColorModeValue('whiteAlpha.300')}
-            borderRadius={6} borderWidth={2} transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
-            backdropFilter='auto' backdropBlur='5px'
-            _hover={{
-              bg: useColorModeValue(), backdropFilter: 'auto', borderColor: 'pink.200',
-              backdropBlur: '10px', transform: 'scale(1.1)'
-            }}>
-            <AddIcon />
-          </Button>
-          <Button px={4} variant='outline' size='lg' color={'white'} background={useColorModeValue('whiteAlpha.300')}
-            borderRadius={6} borderWidth={2} transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
-            backdropFilter='auto' backdropBlur='5px'
-
-            _hover={{
-              bg: useColorModeValue(), backdropFilter: 'auto', borderColor: 'pink.200',
-              backdropBlur: '10px', transform: 'scale(1.1)'
-            }}>
-            <DownloadIcon />
-          </Button>
-          <Button px={4} variant='outline' size='lg' color={'white'} background={useColorModeValue('whiteAlpha.300')}
-            borderRadius={6} borderWidth={2} transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
-            backdropFilter='auto' backdropBlur='5px'
-
-            _hover={{
-              bg: useColorModeValue(), backdropFilter: 'auto', borderColor: 'pink.200',
-              backdropBlur: '10px', transform: 'scale(1.1)'
-            }}>
-            <SettingsIcon />
-          </Button>
-
-
+        <NavBarButton children={<AddIcon />} />
+        <NavBarButton children={<DownloadIcon />} />
+        <NavBarButton children={ <QuestionIcon />} />
+    
 
         </Stack>
       </NavBarContainer>

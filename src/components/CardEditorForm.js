@@ -7,7 +7,6 @@ import {
 import { useOutletContext } from "react-router-dom";
 
 import { CheckIcon, EmailIcon, ArrowRightIcon, InfoOutlineIcon, ChevronRightIcon, AttachmentIcon, InfoIcon } from "@chakra-ui/icons";
-import { transform } from "framer-motion";
 
 const CardEditorForm = () => {
 
