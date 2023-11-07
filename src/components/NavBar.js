@@ -17,7 +17,8 @@ import Logo from "./layout/Logo";
 const NavBarContainer = ({ children, ...props }) => {
   return (
 
-    <Box bgGradient={useColorModeValue(
+    <Box 
+    bgGradient={useColorModeValue(
       'linear(to-tr, pink.300, yellow.300)',
       'linear(to-bl, blue.700, purple.200)',)}>
 
@@ -29,7 +30,7 @@ const NavBarContainer = ({ children, ...props }) => {
         w="100%"
         mb={10}
         p={10}
-        {...props}
+        // {...props}
       >
         {children}
       </Flex>

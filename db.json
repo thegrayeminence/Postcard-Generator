@@ -1,20 +1,21 @@
 {
-    "users": [
+    "cards": [
         {
             "id": 1,
-            "name": "George Orwell"
-        }, 
-        {
-            "id": 2,
-            "name": "Zitkala-Sa"
-        }, 
-        {
-            "id": 3,
-            "name": "Ted Chiang"
-        },
-        {
-            "id": 4,
-            "name": "Isabel Allende"
+            "name": "Isabel de Tur",
+            "address":"707 Judith Square, North Dennisside, CA 18078",
+            "subject":"Greetings",
+            "message":"Obéir te d'autres grandir train exister table absolument. Off think type magazine apply it piece.",
+            "style":"Modern",
+            "options":{
+                "map":false,
+                "stamp":true,
+                "border":true,
+                "filters":false,
+                "two-sided":true
+            },
+            "prompt":"",
+            "image_url":"https://via.placeholder.com/400"
         }
     ]
 }

@@ -2,7 +2,7 @@ import App from "./App";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import PostCardEditor from "./pages/PostCardEditor";
+import SiteMain from "./pages/SiteMain";
 
 const routes = [
     {
@@ -12,7 +12,7 @@ const routes = [
         children: [
             {
                 path:'/',
-                element:<PostCardEditor />
+                element:<SiteMain />
             },
             {
                 path:'/about',
