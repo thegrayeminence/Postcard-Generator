@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet, Navigate, useNavigate } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import routes from './routes';
 
 export default function App() {
+
+
+  
+  //router
+  const router = createBrowserRouter(routes);
+
   return (
 
-<div className="App">
+    <div className="App">
 
-    <NavBar />
-    
-    <Outlet />
-</div>
+      <RouterProvider
+        router={router}
+      //fallbackElement={}
+      />
+    </div>
 
   );
 }

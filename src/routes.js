@@ -2,16 +2,17 @@ import App from "./App";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import PostCardEditor from "./pages/PostCardEditor";
 
 const routes = [
     {
         path:'/',
-        element: <App />,
+        element: <Home />,
         errorElement: <ErrorPage />,
         children: [
             {
                 path:'/',
-                element:<Home />
+                element:<PostCardEditor />
             },
             {
                 path:'/about',
