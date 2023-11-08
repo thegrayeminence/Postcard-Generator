@@ -1,8 +1,14 @@
 import { Divider, Spacer, Square, Card, Text, Image, Center, CardBody, CardFooter, CardHeader, Box, Stack, VStack, HStack, Heading, Flex } from "@chakra-ui/react";
 import { useColorModeValue, ColorMode } from "@chakra-ui/react";
 import gradient1 from '../assets/eternalconstance.png'
+import { useOutletContext } from "react-router-dom";
+
+
 
 const CardPreviewBox = () => {
+
+const [cards] = useOutletContext()[3];
+console.log(cards)
     return (
         <>
             <Box shadow='md' w='100%' height='100%'
@@ -10,34 +16,39 @@ const CardPreviewBox = () => {
             >
 
                 <Flex direction={'row'} wrap={'wrap'}
-                    justify={'space-between'} align={'stretch'}
-                    alignContent={'stretch'} height='inherit'
+                    justify={'space-evenly'} align={'stretch'}
+                    height='inherit'
                 >
 
                     <Box flex='1' _light={{ bg: 'white' }} _dark={{ bgGradient: gradient1 }}
                     >
 
-                        <VStack px='2rem' py='.5rem'>
+                        <Stack direction='row' alignSelf='start' px='2rem' py='.5rem'>
 
                             <Spacer py='.5rem' />
-                            <Box>
+                            <Box >
                                 <Heading fontSize='lg' textAlign='left'>Address:</Heading>
                                 <Spacer py='.5rem' />
-                                <Text textAlign='left'>Cañada de Pilar Fuentes 79 Santa Cruz de Tenerife, 56225</Text>
+                                <Text textAlign='left'>{cards.address}</Text>
                             </Box>
+                        </Stack>
                             <Spacer py='.5rem' />
 
-                            {/* Card Preview Message Text Box */}
-                            <Box>
+                            <Stack direction='row' alignSelf='start' h='65%'>
+                            <Spacer py='.5rem' />
+
+                              {/* Card Preview Message Text Box */}
+                            <Box borderWidth={'1rem'}>
+                
                                 <Heading fontSize='lg' textAlign='left'>Message:</Heading>
                                 <Spacer py='.25rem' />
-                                <Text textAlign='left'>Qui ipsum adipiscing cillum quis laborum consectetur duis. Adipiscing cillum, quis laborum. Laborum consectetur duis laboris minim. Duis laboris minim, est dolor irure. Est dolor irure duis esse sint. Irure duis esse sint ad aliqua, elit. Sint ad aliqua elit cupidatat minim. Aliqua elit, cupidatat minim sunt.Sequi quod labore ea est a. Voluptatibus similique nemo nisi modi qui. Officia modi ea doloremque.</Text>
+                                <Text textAlign='left'>{cards.message}</Text>
                                 <Spacer py='.5rem' />
 
                             </Box>
 
 
-                        </VStack>
+                        </Stack>
 
                     </Box>
 
@@ -50,26 +61,29 @@ const CardPreviewBox = () => {
 
                     </Center>
 
-                    <Box flex='1' _light={{ bg: 'white' }} _dark={{ bgGradient: gradient1 }}
+                    <Box  flex='1' _light={{ bg: 'white' }} _dark={{ bgGradient: gradient1 }}
                     >
-                        <VStack px='2rem' py='.5rem'>
+                        <Stack direction='row' alignSelf='start'>
                             <Spacer py='.5rem' />
-
-                            {/* Post Card Stamp */}
-                            <Box width='5rem' height='5rem' py='1rem' ml='10rem' position='justify' borderWidth='.35rem'>
-                            </Box>
-
-                            <Spacer py='.5rem' />
-
-                            <Box>
+                            <Box borderWidth={'1rem'} position='absolute'>
                                 <Heading fontSize='lg' textAlign='left'>Recipient:</Heading>
                                 <Spacer py='.5rem' />
-                                <Text textAlign='left'>Cañada de Pilar Fuentes 79 Santa Cruz de Tenerife, 56225</Text>
+                                <Text textAlign='left'>{cards.name}</Text>
                             </Box>
-                            <Spacer py='.5rem' />
+                            {/* Post Card Stamp */}
+                            {/* <Box width='5rem' height='5rem' 
+                            py='1rem' ml='10rem' 
+                            borderWidth='.35rem'>
+                            </Box> */}
 
-                        </VStack>
+                        </Stack>
+
+                        <HStack alignSelf='start' px='1rem' h='65%'>
+                            
+                        <Heading textAlign='left' fontSize='lg'>{cards.subject}</Heading>
+                        </HStack>
                     </Box>
+             
 
                 </Flex>
 

@@ -8,7 +8,7 @@ export default function BasicButton({children}) {
   <>
 
       <Button
-        as={'a'} variant='outline' size='lg'
+        variant='outline' size='lg'
         px={4} variant='outline' size='lg' color={'white'} background={useColorModeValue('whiteAlpha.300')}
         borderRadius={6} borderWidth={2} transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
         backdropFilter='auto' backdropBlur='5px'

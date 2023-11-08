@@ -16,13 +16,11 @@ const CardEditorForm = () => {
     const handleChange = (e) => {
         const {name, value} = e.target;
         setFormData(prevData=>({...prevData,[name]:value}))
-        console.log(formData)
+
     }
 
-    console.log(formData)
 
     const handleSubmit = (e) => {
-        console.log(e.target)
 
     }
 

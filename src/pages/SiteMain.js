@@ -1,7 +1,7 @@
 
-import { Outlet, Navigate, useNavigate } from 'react-router-dom';
+import { Outlet, useOutletContext, Navigate, useNavigate } from 'react-router-dom';
 
-import { useColorModeValue, Heading, Stack, Box, Flex, Spacer} from "@chakra-ui/react"
+import { useColorModeValue, Heading, Stack, Box, Flex, Spacer, useDisclosure } from "@chakra-ui/react"
 
 
 import CardEditorForm from "../components/CardEditorForm";
@@ -13,25 +13,27 @@ const PostCardEditor = () => {
 
     return (
         <>
+
             <CardContentBox children={<CardEditorForm />} header={'New Postcard'} />
-         </>
+        </>
     );
 
 }
 
 const PostCardPreview = () => {
-    return(
+    return (
 
         <>
-                    <CardContentBox children={<CardPreviewBox />} 
-                   // header={subject}
-                    />
+            <CardContentBox children={<CardPreviewBox />}
+            // header={subject}
+            />
         </>
     )
 }
 
 export default function SiteMain() {
 
+    const previewMode = useOutletContext()[2];
 
     return (
         <>
@@ -47,8 +49,8 @@ export default function SiteMain() {
 
 
                         <PostCardEditor />
-                        <Spacer py='1rem'/>
-                        <PostCardPreview />
+                        <Spacer py='1rem' />
+                      {previewMode && <PostCardPreview />}
                     </Box>
 
                 </Flex>

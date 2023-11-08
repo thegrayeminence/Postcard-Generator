@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-
+import { useOutlet, useOutletContext } from 'react-router-dom';
 import {
   Nav, IconButton, Icon, Box, Flex,
   useColorModeValue, Text, Button,
-  Stack, useColorMode, useDisclosure
+  Stack, useColorMode, useDisclosure, UseDisclosureProps,
 }
   from "@chakra-ui/react";
 import { MoonIcon, SunIcon, ViewIcon, EditIcon, DownloadIcon, PlusSquareIcon, SettingsIcon, CloseIcon, AddIcon, AiOutlinePlusSquare, QuestionIcon } from "@chakra-ui/icons";
@@ -41,10 +41,32 @@ const NavBarContainer = ({ children, ...props }) => {
 
 export default NavBar;
 
+const PreviewButton = ({children}) => {
+
+
+  return (
+  <>
+
+      <Button
+        variant='outline' size='lg'  onClick={children}
+        px={4} variant='outline' size='lg' color={'white'} background={useColorModeValue('whiteAlpha.300')}
+        borderRadius={6} borderWidth={2} transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
+        backdropFilter='auto' backdropBlur='5px'
+        _hover={{
+          bg: useColorModeValue(), backdropFilter: 'auto', borderColor: 'pink.200',
+          backdropBlur: '10px', transform: 'scale(1.1)'
+        }}>
+          <ViewIcon/>
+      </Button>
+
+
+    </>
+    );
+};
 
 const NightModeToggleButton = () => {
   const { colorMode, toggleColorMode } = useColorMode()
-const { isOpen, onOpen, onClose } = useDisclosure()
+
 return(
 <>
   <Button px={4} onClick={toggleColorMode} variant='outline' size='lg'
@@ -59,11 +81,15 @@ return(
 </>);
 };
 
-function NavBar(props) {
 
 
- 
+function NavBar({handlePreview}) {
 
+
+ // const buttonProps = getButtonProps();
+ // const { isOpen, onOpen, onClose } = useDisclosure()
+// const onOpen = useOutletContext();
+//const onOpen = useDisclosure()
 
   return (
     <>
@@ -72,7 +98,7 @@ function NavBar(props) {
       <Stack direction={'row'} spacing={6}>
      
         <NightModeToggleButton/>
-        <BasicButton children={<ViewIcon/>}/>
+      <PreviewButton children={()=>handlePreview()} />
         </Stack>
 
         <Logo />
