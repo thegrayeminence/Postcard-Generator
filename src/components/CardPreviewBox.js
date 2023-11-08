@@ -7,10 +7,11 @@ import { useOutletContext } from "react-router-dom";
 
 const CardPreviewBox = ({stampOn, borderOn}) => {
 
-const [cards] = useOutletContext()[3];
+const {cards} = useOutletContext();
     return (
         <>
-            <Box overflow={'scroll'} shadow='md' w='100%' height='100%'
+            <Box borderWidth={borderOn ? '.35rem' : '0rem' } borderStyle={'solid'} borderColor={useColorModeValue('gray.300','blue.800')}
+             overflow={'scroll'} shadow='md' w='100%' height='100%'
 
             >
 
@@ -28,7 +29,7 @@ const [cards] = useOutletContext()[3];
                             <Box px='.5rem' >
                                 <Heading fontSize='lg' textAlign='left'>Address:</Heading>
                                 <Spacer py='.5rem' />
-                                <Text fontSize='md' textAlign='left'>{cards.address}</Text>
+                                <Text fontSize='md' textAlign='left'>{cards[0].address}</Text>
                             </Box>
                         </Stack>
                             <Spacer py='.5rem' />
@@ -39,9 +40,9 @@ const [cards] = useOutletContext()[3];
                               {/* Card Preview Message Text Box */}
                             <Box px='.5rem'>
                 
-                                <Heading fontSize='lg' textAlign='left'>{cards.subject}</Heading>
+                                <Heading fontSize='lg' textAlign='left'>{cards[0].subject}</Heading>
                                 <Spacer py='.25rem' />
-                                <Text fontSize='md' textAlign='left'>{cards.message}</Text>
+                                <Text fontSize='md' textAlign='left'>{cards[0].message}</Text>
                                 <Spacer py='.5rem' />
 
                             </Box>
@@ -54,7 +55,7 @@ const [cards] = useOutletContext()[3];
                     <Center>
                         <Divider
                             orientation='vertical'
-                            color='white'
+                            color='white' borderWidth={'.1rem'}
 
                         />
 
@@ -66,22 +67,25 @@ const [cards] = useOutletContext()[3];
                         <Stack px='1.5rem' direction='row' alignSelf='start' h='35%'  position='relative'>
                         <Box >
                                 <Heading fontSize='lg' textAlign='left'>From:</Heading>
-                                <Text fontSize='md' textAlign='left'>{cards.sender}</Text>
+                                <Text fontSize='md' textAlign='left'>{cards[0].sender}</Text>
                                 <Spacer py='.5rem' />
                              
                             </Box>
                             <Spacer py='.5rem' />
                             <Box >
                                 <Heading fontSize='lg' textAlign='left'>To:</Heading>
-                                <Text fontSize='md'  textAlign='left'>{cards.name}</Text>
+                                <Text fontSize='md'  textAlign='left'>{cards[0].name}</Text>
                                 <Spacer py='.5rem' />
                              
                             </Box>
                             {/* Post Card Stamp */}
                             {stampOn && <Box width='5rem' height='5rem' 
-                            bg='red'
+                            bg='gray.300'
                             borderWidth='.35rem'
+
+                           
                             >
+
                             </Box>}
 
                         </Stack>
@@ -93,8 +97,8 @@ const [cards] = useOutletContext()[3];
                             {/* <Text textAlign='left'>Message:</Text> */}
                        
                         <Image
-                        borderWidth={borderOn ? '.35rem' : '0rem' } borderStyle={'ridge'}
-                        transform='translateY(-15%)' opacity={'1'} shadow='md' w='max-content' h='full'  maxH={'fit-content'} src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg/1920px-Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg'/>
+                        borderWidth={borderOn ? '.35rem' : '0rem' } borderStyle={'solid'} borderColor={useColorModeValue('gray.300','blue.800')}
+                        transform='translateY(-15%)' opacity={'1'} shadow='md' h='full' objectFit={'fill'}  src='https://picsum.photos/400/?blur=2' />
                         </Box>
                        
                     </Box>

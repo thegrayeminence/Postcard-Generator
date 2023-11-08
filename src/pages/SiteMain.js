@@ -46,7 +46,7 @@ export default function SiteMain() {
     }
 
     //preview card mode toggle
-    const previewMode = useOutletContext()[2];
+    const {previewMode} = useOutletContext();
 
 
 

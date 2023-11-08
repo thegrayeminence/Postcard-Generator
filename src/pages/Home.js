@@ -11,12 +11,8 @@ const emptyFormObj = {
   "message": "",
   "style": "Modern",
   "prompt": "",
-  "image_url": "https://via.placeholder.com/400"
+  "image_url": "https://picsum.photos/200/300/?blur=2"
 };
-
-
-
-
 
 
 export default function Home() {
@@ -24,14 +20,13 @@ export default function Home() {
 //form data state
   const [formData, setFormData] = useState(emptyFormObj)
 
-//drawer opening states
-  // const { isOpen, onOpen, onClose } = useDisclosure()
+  //set card data state
+  const [cards, setCards] = useState([])  
 
   //hide show preview card mode state
   const [previewMode, setPreviewMode] = useState(false);
 
-  //set card data state
-  const [cards,setCards] = useState([])  
+
 
 
 useEffect(()=>{
@@ -56,7 +51,7 @@ function handlePreview() {
     <>
       <NavBar handlePreview={handlePreview}/>
 
-      <Outlet context={[ formData, setFormData, previewMode, cards]} />
+      <Outlet context={{ formData:formData, setFormData:setFormData, previewMode:previewMode, cards:cards, setCards:setCards, emptyFormObj:emptyFormObj}} />
 
     </>
   )

@@ -13,34 +13,36 @@ import { CheckIcon, EmailIcon} from "@chakra-ui/icons";
 const CardEditorForm = ({ handleStamp, handleBorder }) => {
 
 
-    //prompt filters
+    //image prompt checkbox filters (on/off)
     const [promptFilters, setPromptFilters] = useState(true)
     const handlePromptFilters = () => {
-
         if (promptFilters) { setPromptFilters(false) }
         else { setPromptFilters(true) }
     }
 
-    //form data context states
-    const [formData, setFormData] = useOutletContext();
+    //form data (outlet context) states
+    const {formData, setFormData, emptyFormObj} = useOutletContext();
+    //cards+ setCards (outlet context) states
+    const {cards, setCards} = useOutletContext();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        
         setFormData(prevData => ({ ...prevData, [name]: value }))
 
     }
-    console.log(formData)
 
     const handleSubmit = (e) => {
        e.preventDefault();
+       console.log(formData['img_url'])
        fetch('http://localhost:4000/cards', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
         })
         .then(res=>res.json())
-        .then(newData=>setFormData([...formData, newData]))
-        
+        .then(newData=>setCards([...cards, newData]))
+        setFormData(emptyFormObj)
     }
 
     return (
@@ -224,9 +226,9 @@ const CardEditorForm = ({ handleStamp, handleBorder }) => {
                 </CheckboxGroup>
             </Box>}
             <Spacer py='.75rem' />
-            <Box as="form">
+            <Box>
                 <Button
-                    onSubmit={handleSubmit}
+                    onClick={handleSubmit}
                     w='5rem'
                     mw='7.5rem'
                     shadow='md'
