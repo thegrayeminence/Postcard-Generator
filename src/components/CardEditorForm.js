@@ -25,11 +25,11 @@ const CardEditorForm = () => {
     }
 
     return (
-        <Box>
+        <Box overflow={'scroll'}>
             <Spacer py='.5rem' />
 
             {/* Card Content CheckBox Section */}
-            <Box py='.25rem'>
+            <Box  py='.25rem'>
                 <CheckboxGroup colorScheme='green' >
                     <Stack spacing={6} direction='row'>
                         <Checkbox
@@ -194,9 +194,7 @@ const CardEditorForm = () => {
                         <Checkbox colorScheme='purple'>
                             Randomize
                         </Checkbox>
-                        <Checkbox colorScheme='pink'>
-                            Max Chaos
-                        </Checkbox>
+    
                     </Stack>
                 </CheckboxGroup>
             </Box>

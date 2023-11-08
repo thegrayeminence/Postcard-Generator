@@ -27,8 +27,9 @@ const NavBarContainer = ({ children, ...props }) => {
         as="nav"
         align="center"
         justify="space-between"
-        wrap="wrap"
-        w="100%"
+        wrap='nowrap'
+        minW="100%"
+        maxH='20vh'
         mb={10}
         p={10}
         // {...props}

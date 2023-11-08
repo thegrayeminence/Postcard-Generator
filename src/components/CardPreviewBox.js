@@ -11,38 +11,38 @@ const [cards] = useOutletContext()[3];
 console.log(cards)
     return (
         <>
-            <Box shadow='md' w='100%' height='100%'
+            <Box overflow={'scroll'} shadow='md' w='100%' height='100%'
 
             >
 
-                <Flex direction={'row'} wrap={'wrap'}
+                <Flex   direction={'row'} wrap={'nowrap'}
                     justify={'space-evenly'} align={'stretch'}
                     height='inherit'
                 >
 
-                    <Box flex='1' _light={{ bg: 'white' }} _dark={{ bgGradient: gradient1 }}
+                    <Box flex='.5' _light={{ bg: 'white' }} _dark={{ bgGradient: gradient1 }}
                     >
-
-                        <Stack direction='row' alignSelf='start' px='2rem' py='.5rem'>
+                    <Spacer py='.75rem' />
+                        <Stack direction='row' alignSelf='start'  py='.5rem' position='relative' h='25%'>
 
                             <Spacer py='.5rem' />
-                            <Box >
+                            <Box px='.5rem' >
                                 <Heading fontSize='lg' textAlign='left'>Address:</Heading>
                                 <Spacer py='.5rem' />
-                                <Text textAlign='left'>{cards.address}</Text>
+                                <Text fontSize='md' textAlign='left'>{cards.address}</Text>
                             </Box>
                         </Stack>
                             <Spacer py='.5rem' />
 
-                            <Stack direction='row' alignSelf='start' h='65%'>
+                            <Stack direction='row' alignSelf='start' h='75%' py='.5rem' position='relative'>
                             <Spacer py='.5rem' />
 
                               {/* Card Preview Message Text Box */}
-                            <Box borderWidth={'1rem'}>
+                            <Box px='.5rem'>
                 
-                                <Heading fontSize='lg' textAlign='left'>Message:</Heading>
+                                <Heading fontSize='lg' textAlign='left'>{cards.subject}</Heading>
                                 <Spacer py='.25rem' />
-                                <Text textAlign='left'>{cards.message}</Text>
+                                <Text fontSize='md' textAlign='left'>{cards.message}</Text>
                                 <Spacer py='.5rem' />
 
                             </Box>
@@ -61,29 +61,46 @@ console.log(cards)
 
                     </Center>
 
-                    <Box  flex='1' _light={{ bg: 'white' }} _dark={{ bgGradient: gradient1 }}
+                    <Box flex='.5' _light={{ bg: 'white' }} _dark={{ bgGradient: gradient1 }}
                     >
-                        <Stack direction='row' alignSelf='start'>
-                            <Spacer py='.5rem' />
-                            <Box borderWidth={'1rem'} position='absolute'>
-                                <Heading fontSize='lg' textAlign='left'>Recipient:</Heading>
+                             <Spacer py='.75rem' />
+                        <Stack px='1.5rem' direction='row' alignSelf='start' h='35%'  position='relative'>
+                        <Box >
+                                <Heading fontSize='lg' textAlign='left'>From:</Heading>
+                                <Text fontSize='md' textAlign='left'>{cards.sender}</Text>
                                 <Spacer py='.5rem' />
-                                <Text textAlign='left'>{cards.name}</Text>
+                             
+                            </Box>
+                            <Spacer py='.5rem' />
+                            <Box >
+                                <Heading fontSize='lg' textAlign='left'>To:</Heading>
+                                <Text fontSize='md'  textAlign='left'>{cards.name}</Text>
+                                <Spacer py='.5rem' />
+                             
                             </Box>
                             {/* Post Card Stamp */}
-                            {/* <Box width='5rem' height='5rem' 
-                            py='1rem' ml='10rem' 
-                            borderWidth='.35rem'>
-                            </Box> */}
+                            <Box width='5rem' height='5rem' 
+                            bg='red'
+                            borderWidth='.35rem'
+                            >
+                            </Box>
 
                         </Stack>
+                        <Spacer py='.5rem'/>
 
-                        <HStack alignSelf='start' px='1rem' h='65%'>
-                            
-                        <Heading textAlign='left' fontSize='lg'>{cards.subject}</Heading>
-                        </HStack>
+                          <Box  align='center' h='65%' position='relative'
+     
+                          direction='row' >
+                            {/* <Text textAlign='left'>Message:</Text> */}
+                       
+                        <Image
+                        
+                        transform='translateY(-15%)' opacity={'1'} shadow='md' w='max-content' h='full'  maxH={'fit-content'} src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg/1920px-Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg'/>
+                      
+                        </Box>
+                       
                     </Box>
-             
+            
 
                 </Flex>
 

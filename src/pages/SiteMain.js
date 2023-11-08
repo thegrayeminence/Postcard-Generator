@@ -43,7 +43,7 @@ export default function SiteMain() {
                     <Box
                         // Main Site Background Box
                         p="16" bgGradient={useColorModeValue('linear(to-b, #fefefe, #fff4e7)')}
-                        flex="1" minH="calc(100vh - 60px)" overflow="auto" left={0}
+                      flex="1" minH="calc(100vh - 60px)" overflow="auto" left={0}
                     >
 
 

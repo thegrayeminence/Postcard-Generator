@@ -1,5 +1,4 @@
 import { Box, Heading, useColorModeValue, Text, Tooltip } from "@chakra-ui/react";
-import { easeIn } from "framer-motion";
 
 
 
