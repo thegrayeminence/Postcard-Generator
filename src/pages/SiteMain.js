@@ -1,6 +1,6 @@
 
 import { Outlet, useOutletContext, Navigate, useNavigate } from 'react-router-dom';
-
+import React, { useState } from 'react';
 import { useColorModeValue, Heading, Stack, Box, Flex, Spacer, useDisclosure } from "@chakra-ui/react"
 
 
@@ -9,22 +9,22 @@ import SideBar from '../components/SideBar';
 import CardContentBox from '../components/CardContentBox';
 import CardPreviewBox from '../components/CardPreviewBox';
 
-const PostCardEditor = () => {
+const PostCardEditor = ({handleStamp, handleBorder}) => {
 
     return (
         <>
 
-            <CardContentBox children={<CardEditorForm />} header={'New Postcard'} />
+            <CardContentBox children={<CardEditorForm handleBorder={handleBorder} handleStamp={handleStamp} />} header={'New Postcard'} />
         </>
     );
 
 }
 
-const PostCardPreview = () => {
+const PostCardPreview = ({stampOn, borderOn}) => {
     return (
 
         <>
-            <CardContentBox children={<CardPreviewBox />}
+            <CardContentBox children={<CardPreviewBox  borderOn={borderOn} stampOn={stampOn} />}
             // header={subject}
             />
         </>
@@ -32,7 +32,19 @@ const PostCardPreview = () => {
 }
 
 export default function SiteMain() {
-
+    // stamp
+    const [stampOn,setStampOn] = useState(true);
+    const handleStamp = () => {
+      if (stampOn) {setStampOn(false)}
+      else if (!stampOn) {setStampOn(true)}
+    }
+    // border
+    const [borderOn,setBorderOn] = useState(true);
+    const handleBorder = () => {
+        if (borderOn) {setBorderOn(false)}
+        else if (!borderOn) {setBorderOn(true)}
+    }
+    
     const previewMode = useOutletContext()[2];
 
     return (
@@ -48,9 +60,9 @@ export default function SiteMain() {
 
 
 
-                        <PostCardEditor />
+                        <PostCardEditor handleStamp={handleStamp} handleBorder={handleBorder}/>
                         <Spacer py='1rem' />
-                      {previewMode && <PostCardPreview />}
+                      {previewMode && <PostCardPreview stampOn={stampOn} borderOn={borderOn}/>}
                     </Box>
 
                 </Flex>

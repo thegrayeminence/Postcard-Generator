@@ -3,21 +3,35 @@ import {
     FormLabel, Input, Text, Spacer, InputLeftElement, InputRightElement, InputGroup,
     FormErrorMessage, useColorModeValue, Select, FormHelperText, Stack, Box, Button
 } from "@chakra-ui/react";
-
+import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import set from 'lodash/set'; 
+
 
 import { CheckIcon, EmailIcon, ArrowRightIcon, InfoOutlineIcon, ChevronRightIcon, AttachmentIcon, InfoIcon } from "@chakra-ui/icons";
 
-const CardEditorForm = () => {
+const CardEditorForm = ({handleStamp, handleBorder}) => {
+//form data
+const [formData, setFormData] = useOutletContext();
+//prompt filters
+const [promptFilters,setPromptFilters] = useState(true)
+const handlePromptFilters = () => {
 
+    if(promptFilters){setPromptFilters(false)}
+    else{setPromptFilters(true)}
+}
 
-    const [formData, setFormData] = useOutletContext();
+function handleChange(event) {
+    const { name, value } = event.target; 
+    const newFormData = { ...formData }; 
+    set(newFormData, name, value); 
+    setFormData(newFormData); }
 
-    const handleChange = (e) => {
-        const {name, value} = e.target;
-        setFormData(prevData=>({...prevData,[name]:value}))
+    // const handleChange = (e) => {
+    //     const {name, value} = e.target;
+    //     setFormData(prevData=>({...prevData,[name]:value}))
 
-    }
+    // }
 
 
     const handleSubmit = (e) => {
@@ -33,21 +47,28 @@ const CardEditorForm = () => {
                 <CheckboxGroup colorScheme='green' >
                     <Stack spacing={6} direction='row'>
                         <Checkbox
-                            // isChecked={}
-                           // onChange={handleChange}
+                             //isChecked={}
                         >
                             Map Pin
                         </Checkbox>
-                        <Checkbox>
+                        <Checkbox defaultChecked
+                     //   isChecked={stampOn}
+                        onChange={()=>handleStamp()}
+                        >
+                            
                             Stamp
                         </Checkbox>
                         <Checkbox defaultChecked>
                             Two-Sided
                         </Checkbox>
-                        <Checkbox defaultChecked>
+                        <Checkbox defaultChecked
+                        onChange={()=>handleBorder()}
+                        >
                             Border
                         </Checkbox>
-                        <Checkbox defaultChecked>
+                        <Checkbox defaultChecked
+                        onChange={()=>handlePromptFilters()}
+                        >
                             Prompt Filters
                         </Checkbox>
                     </Stack>
@@ -115,10 +136,11 @@ const CardEditorForm = () => {
                 <FormLabel>Card Style</FormLabel>
                 <Select
                    
-                    value={formData.style}
+                   
                     onChange={handleChange}
                     id='style'
                     name='style'
+                    value={formData.style}
                     placeholder="Choose style"
                     shadow='md'
                     >
@@ -178,7 +200,7 @@ const CardEditorForm = () => {
 
             {/* Card Image Prompt Filter Checkbox Section  */}
             <Spacer py='.75rem' />
-            <Box>
+            {promptFilters && <Box>
                 <CheckboxGroup>
                     <Stack spacing={6} direction='row'>
                         <Text>Prompt Filters:</Text>
@@ -197,7 +219,7 @@ const CardEditorForm = () => {
     
                     </Stack>
                 </CheckboxGroup>
-            </Box>
+            </Box>}
             <Spacer py='.75rem' />
             <Box as="form">
                 <Button

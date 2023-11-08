@@ -36,6 +36,12 @@ export default function Home() {
 
   const [previewMode, setPreviewMode] = useState(false);
   const [cards,setCards] = useState([])  
+  // const [stampOn,setStampOn] = useState(true);
+
+  // const handleStamp = () => {
+  //   if (stampOn) {setStampOn(false)}
+  //   else if (!stampOn) {setStampOn(true)}
+  // }
 
 useEffect(()=>{
 fetch('http://localhost:4000/cards')

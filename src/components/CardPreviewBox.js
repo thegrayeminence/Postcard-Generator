@@ -5,10 +5,10 @@ import { useOutletContext } from "react-router-dom";
 
 
 
-const CardPreviewBox = () => {
+const CardPreviewBox = ({stampOn, borderOn}) => {
 
 const [cards] = useOutletContext()[3];
-console.log(cards)
+console.log(borderOn)
     return (
         <>
             <Box overflow={'scroll'} shadow='md' w='100%' height='100%'
@@ -79,11 +79,11 @@ console.log(cards)
                              
                             </Box>
                             {/* Post Card Stamp */}
-                            <Box width='5rem' height='5rem' 
+                            {stampOn && <Box width='5rem' height='5rem' 
                             bg='red'
                             borderWidth='.35rem'
                             >
-                            </Box>
+                            </Box>}
 
                         </Stack>
                         <Spacer py='.5rem'/>
@@ -94,9 +94,8 @@ console.log(cards)
                             {/* <Text textAlign='left'>Message:</Text> */}
                        
                         <Image
-                        
+                        borderWidth={borderOn ? '.35rem' : '0rem' } borderStyle={'ridge'}
                         transform='translateY(-15%)' opacity={'1'} shadow='md' w='max-content' h='full'  maxH={'fit-content'} src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg/1920px-Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg'/>
-                      
                         </Box>
                        
                     </Box>
