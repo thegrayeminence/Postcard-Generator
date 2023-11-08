@@ -1,7 +1,7 @@
 import App from "./App";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
-import About from "./pages/About";
+import Gallery from "./pages/Gallery";
 import SiteMain from "./pages/SiteMain";
 
 const routes = [
@@ -15,8 +15,8 @@ const routes = [
                 element:<SiteMain />
             },
             {
-                path:'/about',
-                element:<About />
+                path:'/gallery',
+                element:<Gallery />
             }
         ]
     }

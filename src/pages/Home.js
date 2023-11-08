@@ -29,19 +29,18 @@ const emptyFormObj = {
 
 export default function Home() {
 
-
+//form data state
   const [formData, setFormData] = useState(emptyFormObj)
 
-  const { isOpen, onOpen, onClose, getDisclosureProps, getButtonProps } = useDisclosure()
+//drawer opening states
+  // const { isOpen, onOpen, onClose } = useDisclosure()
 
+  //hide show preview card mode state
   const [previewMode, setPreviewMode] = useState(false);
-  const [cards,setCards] = useState([])  
-  // const [stampOn,setStampOn] = useState(true);
 
-  // const handleStamp = () => {
-  //   if (stampOn) {setStampOn(false)}
-  //   else if (!stampOn) {setStampOn(true)}
-  // }
+  //set card data state
+  const [cards,setCards] = useState([])  
+
 
 useEffect(()=>{
 fetch('http://localhost:4000/cards')

@@ -1,7 +1,7 @@
 
 import { Outlet, useOutletContext, Navigate, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
-import { useColorModeValue, Heading, Stack, Box, Flex, Spacer, useDisclosure } from "@chakra-ui/react"
+import { useColorModeValue, Drawer, DrawerOverlay, DrawerContent, DrawerBody, DrawerHeader, DrawerFooter, Heading, Stack, Box, Flex, Spacer, useDisclosure } from "@chakra-ui/react"
 
 
 import CardEditorForm from "../components/CardEditorForm";
@@ -32,26 +32,31 @@ const PostCardPreview = ({stampOn, borderOn}) => {
 }
 
 export default function SiteMain() {
-    // stamp
+
+    // stamp mode toggle
     const [stampOn,setStampOn] = useState(true);
     const handleStamp = () => {
       if (stampOn) {setStampOn(false)}
       else if (!stampOn) {setStampOn(true)}
     }
-    // border
+    // border mode toggle
     const [borderOn,setBorderOn] = useState(true);
     const handleBorder = () => {
         if (borderOn) {setBorderOn(false)}
         else if (!borderOn) {setBorderOn(true)}
     }
     
+    //preview card mode toggle
     const previewMode = useOutletContext()[2];
+
+
 
     return (
         <>
             <Box minH="100vh" minW='100vw' marginTop='-10' align='center'>
                 <Flex>
                     {/* <SideBar /> */}
+
                     <Box
                         // Main Site Background Box
                         p="16" bgGradient={useColorModeValue('linear(to-b, #fefefe, #fff4e7)')}

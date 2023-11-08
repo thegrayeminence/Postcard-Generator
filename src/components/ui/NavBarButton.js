@@ -1,10 +1,10 @@
 import { Button, useColorModeValue } from "@chakra-ui/react";
 
-const NavBarButton = ({ children }) => {
+const NavBarButton = ({ children , func}) => {
 
   return (
 
-    <Button px={4} variant='outline' size='lg' color={'white'} background={useColorModeValue('whiteAlpha.300')}
+    <Button onClick={func} px={4} variant='outline' size='lg' color={'white'} background={useColorModeValue('whiteAlpha.300')}
       borderRadius={6} borderWidth={2} transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
       backdropFilter='auto' backdropBlur='5px'
       _hover={{
