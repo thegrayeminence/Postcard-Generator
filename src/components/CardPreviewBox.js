@@ -8,7 +8,6 @@ import { useOutletContext } from "react-router-dom";
 const CardPreviewBox = ({stampOn, borderOn}) => {
 
 const [cards] = useOutletContext()[3];
-console.log(borderOn)
     return (
         <>
             <Box overflow={'scroll'} shadow='md' w='100%' height='100%'

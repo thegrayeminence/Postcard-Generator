@@ -5,8 +5,6 @@ import routes from './routes';
 export default function App() {
 
 
-  
-  //router
   const router = createBrowserRouter(routes);
 
   return (
@@ -15,7 +13,6 @@ export default function App() {
 
       <RouterProvider
         router={router}
-      //fallbackElement={}
       />
     </div>
 

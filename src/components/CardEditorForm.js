@@ -5,37 +5,42 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
-import set from 'lodash/set'; 
+//import set from 'lodash/set';
 
 
-import { CheckIcon, EmailIcon, ArrowRightIcon, InfoOutlineIcon, ChevronRightIcon, AttachmentIcon, InfoIcon } from "@chakra-ui/icons";
+import { CheckIcon, EmailIcon} from "@chakra-ui/icons";
 
-const CardEditorForm = ({handleStamp, handleBorder}) => {
-//form data
-const [formData, setFormData] = useOutletContext();
-//prompt filters
-const [promptFilters,setPromptFilters] = useState(true)
-const handlePromptFilters = () => {
+const CardEditorForm = ({ handleStamp, handleBorder }) => {
 
-    if(promptFilters){setPromptFilters(false)}
-    else{setPromptFilters(true)}
-}
 
-function handleChange(event) {
-    const { name, value } = event.target; 
-    const newFormData = { ...formData }; 
-    set(newFormData, name, value); 
-    setFormData(newFormData); }
+    //prompt filters
+    const [promptFilters, setPromptFilters] = useState(true)
+    const handlePromptFilters = () => {
 
-    // const handleChange = (e) => {
-    //     const {name, value} = e.target;
-    //     setFormData(prevData=>({...prevData,[name]:value}))
+        if (promptFilters) { setPromptFilters(false) }
+        else { setPromptFilters(true) }
+    }
 
-    // }
+    //form data context states
+    const [formData, setFormData] = useOutletContext();
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevData => ({ ...prevData, [name]: value }))
+
+    }
+    console.log(formData)
 
     const handleSubmit = (e) => {
-
+       e.preventDefault();
+       fetch('http://localhost:4000/cards', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+        })
+        .then(res=>res.json())
+        .then(newData=>setFormData([...formData, newData]))
+        
     }
 
     return (
@@ -43,31 +48,29 @@ function handleChange(event) {
             <Spacer py='.5rem' />
 
             {/* Card Content CheckBox Section */}
-            <Box  py='.25rem'>
+            <Box py='.25rem'>
                 <CheckboxGroup colorScheme='green' >
                     <Stack spacing={6} direction='row'>
                         <Checkbox
-                             //isChecked={}
+                        //isChecked={}
                         >
                             Map Pin
                         </Checkbox>
                         <Checkbox defaultChecked
-                     //   isChecked={stampOn}
-                        onChange={()=>handleStamp()}
+                            onChange={() => handleStamp()}
                         >
-                            
                             Stamp
                         </Checkbox>
                         <Checkbox defaultChecked>
                             Two-Sided
                         </Checkbox>
                         <Checkbox defaultChecked
-                        onChange={()=>handleBorder()}
+                            onChange={() => handleBorder()}
                         >
                             Border
                         </Checkbox>
                         <Checkbox defaultChecked
-                        onChange={()=>handlePromptFilters()}
+                            onChange={() => handlePromptFilters()}
                         >
                             Prompt Filters
                         </Checkbox>
@@ -135,15 +138,15 @@ function handleChange(event) {
 
                 <FormLabel>Card Style</FormLabel>
                 <Select
-                   
-                   
+
+
                     onChange={handleChange}
                     id='style'
                     name='style'
                     value={formData.style}
                     placeholder="Choose style"
                     shadow='md'
-                    >
+                >
                     <option>Modern</option>
                     <option>Vintage</option>
                     <option>Old Papyrus</option>
@@ -216,7 +219,7 @@ function handleChange(event) {
                         <Checkbox colorScheme='purple'>
                             Randomize
                         </Checkbox>
-    
+
                     </Stack>
                 </CheckboxGroup>
             </Box>}
