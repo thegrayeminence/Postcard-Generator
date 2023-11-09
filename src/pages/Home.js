@@ -11,7 +11,7 @@ const emptyFormObj = {
   "message": "",
   "style": "Modern",
   "prompt": "",
-  "image_url": "https://picsum.photos/400/250/"
+  "image_url": ""
 };
 
 

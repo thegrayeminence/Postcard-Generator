@@ -36,6 +36,11 @@ return(
                 //filter='auto'
                         backdropFilter='auto'
                         filter='drop-shadow(0.035em 0.050em .1rem #00f)'
+                        transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
+                        _hover={{
+                            transform:'scale(1.08)',
+                          
+                    }}
 
                         
             >GALLERY:</Heading>

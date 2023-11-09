@@ -47,17 +47,24 @@ const CardEditorForm = ({ handleStamp, handleBorder }) => {
         return;
     }
 
+    const newImageUrl = `https://picsum.photos/400/250/?random=${Math.floor(Math.random() * 1000)}`;
+    const newCard = {
+        ...formData,
+        image_url: newImageUrl
+    };
 
        fetch('http://localhost:4000/cards', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(newCard)
         })
         .then(res=>res.json())
-        .then(newData=>setCards([...cards, newData]))
-        setFormData(emptyFormObj)
-        navigate('/gallery')
+        .then(newData => {
+            setCards([...cards, newData]);
+            setFormData(emptyFormObj);
+            navigate('/gallery');
 
+        });
     }
 
     return (
