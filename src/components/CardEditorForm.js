@@ -1,18 +1,18 @@
 import {
     FormControl, Checkbox, CheckboxGroup, Textarea,
-    FormLabel, Input, Text, Spacer, InputLeftElement, InputRightElement, InputGroup,
-    FormErrorMessage, useColorModeValue, Select, FormHelperText, Stack, Box, Button
+    FormLabel, Input, Text, Spacer, InputLeftElement, InputGroup,
+    FormErrorMessage, useColorModeValue, Select, Stack, Box, Button
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";
 //import set from 'lodash/set';
 
 
-import { CheckIcon, EmailIcon} from "@chakra-ui/icons";
+import { EmailIcon} from "@chakra-ui/icons";
 
 const CardEditorForm = ({ handleStamp, handleBorder }) => {
 
-    
+    const navigate = useNavigate();
 
     //image prompt checkbox filters (on/off)
     const [promptFilters, setPromptFilters] = useState(true)
@@ -41,17 +41,23 @@ const CardEditorForm = ({ handleStamp, handleBorder }) => {
 
     const handleSubmit = (e) => {
        e.preventDefault();
+
+       if(!formData.name || !formData.sender || !formData.message || !formData.address || !formData.subject){
+        console.log('All fields are required!')
+        return;
+    }
+
+
        fetch('http://localhost:4000/cards', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
         })
         .then(res=>res.json())
-        .then(newData=>{            
-        
-        if(formData.name.length&&formData.sender.length&&formData.message.length&&formData.address.length&&formData.subject.length)
-        {setCards([...cards, newData])}})
+        .then(newData=>setCards([...cards, newData]))
         setFormData(emptyFormObj)
+        navigate('/gallery')
+
     }
 
     return (
