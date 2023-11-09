@@ -15,7 +15,8 @@ const {cards} = useOutletContext();
 
             >
 
-                <Flex   direction={'row'} wrap={'nowrap'}
+                <Flex 
+                    direction={'row'} wrap={'nowrap'}
                     justify={'space-evenly'} align={'stretch'}
                     height='inherit'
                 >

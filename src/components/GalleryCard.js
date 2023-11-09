@@ -1,36 +1,65 @@
 import { CardBody, Spacer, CardFooter, CardHeader, GridItemProps, GridProps, Box, Grid, GridItem, Card, Heading, Text, Stack, Flex, Image, Button, useColorModeValue } from "@chakra-ui/react"
+import gradient1 from '../assets/earlgray.png'
 
-const GalleryCard = ({card}) => {
+const GalleryCard = ({ card }) => {
 
-    const {name, address, sender, message,subject, image_url} = card;
+    const fontStyles = {
+
+        color: 'blackAlpha.800',
+        textShadow: '.03rem .03rem .1rem gray',
+        fontSize: '.75rem'
+    }
+
+    const { name, address, sender, message, subject, image_url } = card;
     return (
         <>
- 
-            <Box >
+
+            <Box
+                boxShadow={'dark-lg'}
+                border overflow={'scroll'}
+                borderStyle={'solid'}
+                borderColor={useColorModeValue('whiteAlpha.500', 'blackAlpha.600')}
+                bgGradient={useColorModeValue(
+                    'linear(to-b, #f5f7fa, #c3cfe2)',
+                    'linear(to-bl, #f5f7fa, #c3cfe2)'
+                )}
+                //shadow='md'
+
+                borderWidth={'.3rem'}
+
+            >
 
                 <Grid
-                     overflow={'hidden'}
-                    bg='white'
-                    h='10rem'
-                    w="20rem"
+
+                    w='full'
+
+                    minH="15rem"
+
                     templateRows='repeat(3, 1fr)'
                     templateColumns='repeat(6, 1fr)'
                     gap={'.25rem'}
                 >
-                    <GridItem p={'.25rem'} position='relative' rowSpan={3} colSpan={2} bg='blue'>
-                    
-            
-                    <Text  fontSize='.75rem'>Subj:{subject}</Text>
-                    <Spacer py={'.25rem'}/>
-                    <Text  fontSize='.6rem'>{message}</Text>
-                    </GridItem>
-                    <GridItem position='relative' rowSpan={2} colSpan={4} bg='papayawhip'>
-                    <Image objectFit='contain' src={image_url}/>
+                    <GridItem bg='inherit'
+                        p={'.25rem'} position='relative' rowSpan={3} colSpan={2}>
+                        <Spacer py={'1rem'} />
+                        <Heading sx={fontStyles}>Subj:{subject}</Heading>
+                        <Spacer py={'.25rem'} />
+                        <Text sx={fontStyles}>{message}</Text>
                     </GridItem>
 
-                    <GridItem  px={'.25rem'} position='relative' rowSpan={1} colSpan={4} bg='tomato'>
-                    <Text fontSize='.75rem'>To:{name}</Text>
-                    <Text fontSize='.75rem'>Address:{address}</Text>
+                    <GridItem position='relative' rowSpan={2} colSpan={4} >
+                        <Image 
+                             
+                        objectFit={'cover'} src={image_url} />
+                    </GridItem>
+
+                    <GridItem bg='inherit' px={'.25rem'} position='relative' rowSpan={1} colSpan={4}>
+                        <Spacer py={'.25rem'} />
+                        <Heading sx={fontStyles}>
+                            To:{name}
+                        </Heading>
+                        <Text sx={fontStyles}>Address:{address}
+                        </Text>
                     </GridItem>
                 </Grid>
 
