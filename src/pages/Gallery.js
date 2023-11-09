@@ -33,8 +33,7 @@ return(
                 fontWeight='extrabold'
                 //filter='auto'
                         backdropFilter='auto'
-                        filter='
-                        drop-shadow(0.035em 0.050em .1rem #000)'
+                        filter='drop-shadow(0.035em 0.050em .1rem #00f)'
 
                         
             >POSTCARD GALLERY:</Heading>

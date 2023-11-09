@@ -4,48 +4,48 @@ import gradient1 from '../assets/earlgray.png'
 const GalleryCard = ({ card }) => {
 
     const fontStyles = {
-        color:'red.900',
+        color: 'red.900',
         textShadow: '-.01rem 0 black, 0 -.01rem black, -.01rem 0 black, 0 -.01rem black;',
         fontSize: '1vw',
-        letterSpacing:'.05rem',
+        letterSpacing: '.05rem',
         textAlign: 'left',
-        fontFamily:'avenir',
-        lineHeight:'1.35rem',
+        fontFamily: 'avenir',
+        lineHeight: '1.35rem',
 
     }
 
     const fontStylesHeader = {
 
         textShadow: '-.01rem 0 black, 0 -.01rem black, -.01rem 0 black, 0 -.01rem black;',
-     
-        letterSpacing:'.07rem',
+
+        letterSpacing: '.07rem',
         textAlign: 'left',
-        fontFamily:'avenir',
-        lineHeight:'1.35rem',
-        fontStyle:'oblique',
-        color:'purple.700',
-        fontSize:'1.2vw',
+        fontFamily: 'avenir',
+        lineHeight: '1.35rem',
+        fontStyle: 'oblique',
+        color: 'purple.700',
+        fontSize: '1.2vw',
 
     }
 
     const fontStylesDetail = {
 
 
-        letterSpacing:'.05rem',
+        letterSpacing: '.05rem',
         textAlign: 'left',
-        fontFamily:'avenir',
-        lineHeight:'1rem',
-        fontStyle:'oblique',
-        color:'blackAlpha.700',
-        fontSize:'1vw',
+        fontFamily: 'avenir',
+        lineHeight: '1rem',
+        fontStyle: 'oblique',
+        color: 'blackAlpha.700',
+        fontSize: '1vw',
 
     }
-   
+
     const { name, address, sender, message, subject, image_url } = card;
     return (
         <>
 
-            <Box 
+            <Box
 
 
                 borderRadius={'lg'}
@@ -68,8 +68,8 @@ const GalleryCard = ({ card }) => {
 
                 _hover={{
                     backdropFilter: 'auto',
-                    backdropBlur: '10px', transform: 'scale(1.15)',
-                    bgGradient: useColorModeValue('linear(to-b,  #f5f7fa, #c3cfe2)', 'linear(to-tl,  #cd9cf2, #fdfbfb)')
+                    backdropBlur: '10px', transform: 'scale(1.1)',
+                    bgGradient: useColorModeValue('linear(to-b,  #f5f7fa, #c3cfe2)', 'linear(to-tl,  #c2e9fb, #fff)')
                 }}
 
 
@@ -84,40 +84,40 @@ const GalleryCard = ({ card }) => {
                 >
                     <GridItem justify={'center'} ml='auto' bg='inherit'
                         px={'.75rem'} rowSpan={3} colSpan={2}
-                        
+
                         borderWidth={'.2rem'}
                         borderStyle={'groove'}
                         borderColor={useColorModeValue('whiteAlpha.500', 'blackAlpha.400')}
                         boxShadow={'base'}
                     >
-                           
-                      <Spacer  py={'.75rem'} />
+
+                        <Spacer py={'.75rem'} />
 
 
-             
+
                         <Heading
-                        fontStyle={'oblique'}
-                        sx={fontStylesHeader}>{subject}</Heading>
+                            fontStyle={'oblique'}
+                            sx={fontStylesHeader}>{subject}</Heading>
                         <Spacer py={'.25rem'} />
                         <Text
-                        
-                        sx={fontStyles}>{message}</Text>
 
-<Spacer py={'.25rem'} />    
+                            sx={fontStyles}>{message}</Text>
 
-<Heading
+                        <Spacer py={'.5rem'} />
 
-fontStyle={'oblique'}
-sx={fontStylesDetail}>From:
+                        <Heading
 
-{sender}</Heading>
+                            fontStyle={'oblique'}
+                            sx={fontStylesDetail}>From:
+
+                            {sender}</Heading>
                     </GridItem>
 
-                    <GridItem  ml='auto' justify={'center'} rowSpan={2} colSpan={4}
+                    <GridItem ml='auto' justify={'center'} rowSpan={2} colSpan={4}
 
                     >
 
-                        <Image 
+                        <Image
                             borderWidth={'.2rem'}
                             borderStyle={'groove'}
                             boxShadow={'base'}
@@ -127,21 +127,21 @@ sx={fontStylesDetail}>From:
                     </GridItem>
 
                     <GridItem
-                    
+
                         boxShadow={'base'}
                         borderWidth={'.2rem'}
                         borderStyle={'groove'}
                         borderColor={useColorModeValue('whiteAlpha.500', 'blackAlpha.400')}
                         justify={'center'} ml='auto' bg='inherit' px={'.25rem'} rowSpan={1} colSpan={4}>
-                        <Spacer  py={'.25rem'} />
+                        <Spacer py={'.25rem'} />
                         <Heading sx={fontStylesHeader}
-                        
+
                         >
-                            To:{name}  
+                            To:{name}
                         </Heading>
                         < Text
-                          fontStyle={'oblique'}
-                        sx={fontStyles}>Address:{address}
+                            fontStyle={'oblique'}
+                            sx={fontStyles}>Address:{address}
                         </Text>
                     </GridItem>
                 </Grid>

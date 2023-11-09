@@ -20,6 +20,12 @@ const CardEditorForm = ({ handleStamp, handleBorder }) => {
         else { setPromptFilters(true) }
     }
 
+    const [promptsOff, setPromptsOff] = useState(true)
+    const handleAiPrompts = () => {
+        if (promptsOff) { setPromptsOff(false) }
+        else { setPromptsOff(true) }
+    }
+
     //form data (outlet context) states
     const {formData, setFormData, emptyFormObj} = useOutletContext();
     //cards+ setCards (outlet context) states
@@ -53,10 +59,10 @@ const CardEditorForm = ({ handleStamp, handleBorder }) => {
             <Box py='.25rem'>
                 <CheckboxGroup colorScheme='green' >
                     <Stack spacing={6} direction='row'>
-                        <Checkbox
-                        //isChecked={}
+                        <Checkbox  defaultChecked
+                        onChange={()=>handleAiPrompts()}
                         >
-                            Map Pin
+                            AI
                         </Checkbox>
                         <Checkbox defaultChecked
                             onChange={() => handleStamp()}
@@ -102,9 +108,7 @@ const CardEditorForm = ({ handleStamp, handleBorder }) => {
                                 id='address'
                                 placeholder='Recipient Address'
                             />
-                            {/* <InputRightElement>
-                            <CheckIcon color='teal.500' />
-                        </InputRightElement> */}
+             
                         </InputGroup>
                     </FormControl>
 
@@ -124,9 +128,6 @@ const CardEditorForm = ({ handleStamp, handleBorder }) => {
                                 placeholder='Recipient Name'
                             />
 
-                            {/* <InputRightElement>
-                            <CheckIcon color='teal.500' />
-                        </InputRightElement> */}
                         </InputGroup>
                     </FormControl>
                 </Stack>
@@ -160,6 +161,8 @@ const CardEditorForm = ({ handleStamp, handleBorder }) => {
             <Spacer py='.5rem' />
 
             {/* Card Message Subject + Body Input Section */}
+            <Stack spacing={4} direction='row'>
+                
             <FormControl isRequired>
                 <FormLabel>Subject</FormLabel>
                 <Input
@@ -172,6 +175,19 @@ const CardEditorForm = ({ handleStamp, handleBorder }) => {
                     shadow='md'
                 />
             </FormControl>
+            <FormControl isRequired>
+                <FormLabel>Sender</FormLabel>
+                <Input
+                    onChange={handleChange}
+                    value={formData.sender}
+                    type='text'
+                    name='sender'
+                    id='sender'
+                    placeholder='Message Sender'
+                    shadow='md'
+                />
+            </FormControl>
+            </Stack>
             <Spacer py='.5rem' />
             <FormControl isRequired>
                 <FormLabel>Message</FormLabel>
@@ -188,7 +204,7 @@ const CardEditorForm = ({ handleStamp, handleBorder }) => {
             </FormControl>
             <Spacer py='.5rem' />
             {/* Card Image Prompt Section */}
-            <FormControl>
+            {promptsOff && <FormControl>
                 <FormLabel>Image Prompt</FormLabel>
                 <Textarea
                     onChange={handleChange}
@@ -200,7 +216,7 @@ const CardEditorForm = ({ handleStamp, handleBorder }) => {
                     resize="none"
                     shadow='md'
                 />
-            </FormControl>
+            </FormControl>}
 
 
             {/* Card Image Prompt Filter Checkbox Section  */}

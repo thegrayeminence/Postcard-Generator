@@ -8,8 +8,10 @@ const CardContentBox = ({children, header}) => {
 
         <Box
             //Card Content Background
-            maxW="75vw" margin="0 auto" borderWidth='.1rem' p='2.5rem' borderRadius='2rem'
-            backdropFilter='auto' backdropBlur='10px' shadow='lg'
+            maxW="80vw" 
+           // h='fit-content' 
+            margin="0 auto" borderWidth='.1rem' p='2.5rem' borderRadius='2rem'
+            backdropFilter='auto'  shadow='lg'
             bg='whiteAlpha.300' transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
             _hover={{
                 backdropFilter: 'auto',
