@@ -29,14 +29,16 @@ return(
                 bgGradient={useColorModeValue('linear(to-r, pink.400, purple.600)', 'linear(to-r, purple.200, blue.600)')}
                 bgClip='text'
                 textAlign={'center'}
-                fontSize='5xl'
+                letterSpacing={'.5rem'}
+                fontSize='6xl'
+                fontFamily={'avenir'}
                 fontWeight='extrabold'
                 //filter='auto'
                         backdropFilter='auto'
                         filter='drop-shadow(0.035em 0.050em .1rem #00f)'
 
                         
-            >POSTCARD GALLERY:</Heading>
+            >GALLERY:</Heading>
 
         <SimpleGrid  align={'space-between'} justify='center' pt={'2rem'} ml='25%' width='50%'  columns={1} spacing='2rem'>
          

@@ -12,6 +12,7 @@ import { CheckIcon, EmailIcon} from "@chakra-ui/icons";
 
 const CardEditorForm = ({ handleStamp, handleBorder }) => {
 
+    
 
     //image prompt checkbox filters (on/off)
     const [promptFilters, setPromptFilters] = useState(true)
@@ -40,14 +41,16 @@ const CardEditorForm = ({ handleStamp, handleBorder }) => {
 
     const handleSubmit = (e) => {
        e.preventDefault();
-       console.log(formData['img_url'])
        fetch('http://localhost:4000/cards', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
         })
         .then(res=>res.json())
-        .then(newData=>setCards([...cards, newData]))
+        .then(newData=>{            
+        
+        if(formData.name.length&&formData.sender.length&&formData.message.length&&formData.address.length&&formData.subject.length)
+        {setCards([...cards, newData])}})
         setFormData(emptyFormObj)
     }
 
@@ -247,7 +250,9 @@ const CardEditorForm = ({ handleStamp, handleBorder }) => {
                     onClick={handleSubmit}
                     w='5rem'
                     mw='7.5rem'
-                    shadow='md'
+                    shadow='lg'
+                    fontWeight='semibold'
+                    fontFamily='Avenir Next'
                     bgGradient={useColorModeValue('linear(to-r, pink.300, red.200)', 'linear(to-r, purple.500, blue.600)')}
 
                     color="white"
@@ -255,7 +260,7 @@ const CardEditorForm = ({ handleStamp, handleBorder }) => {
                         transform: 'scale(1.05)'
                     }}
                 >
-                    Submit
+                    SUBMIT
                 </Button>
             </Box>
         </Box>

@@ -12,13 +12,14 @@ export default function Logo() {
                     'linear(to-tr, purple.600, blue.800)')}
                 bgClip='text'
                 fontSize='2.7rem'
-                fontWeight='extrabold'
-                letterSpacing='.2rem'
+                fontWeight='bold'
+                letterSpacing='.25rem'
                 textAlign='center'
+                fontFamily='Avenir Next'
                 transition={'all .3s ease'}
                 _hover={{transform:'scale(1.05)'}}
                 >
-                 Post Card Genie </Heading>
+                 PostCard Genie </Heading>
                 
         </Box>
     );

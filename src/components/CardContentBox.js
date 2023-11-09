@@ -25,7 +25,10 @@ const CardContentBox = ({children, header}) => {
                 bgGradient={useColorModeValue('linear(to-r, pink.400, purple.600)', 'linear(to-r, purple.200, blue.600)')}
                 bgClip='text'
                 fontSize='5xl'
-                fontWeight='extrabold'
+                fontWeight='bold'
+                letterSpacing='.1rem'
+                fontFamily='Avenir Next'
+           
                
             >
                 {header}
