@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { useOutlet, useOutletContext , useNavigate, NavLink} from 'react-router-dom';
-import {Box, Flex, Spacer, useColorModeValue, Text, Button,
-  Stack, useColorMode, useDisclosure, UseDisclosureProps,
-} from "@chakra-ui/react";
+import React from 'react';
+import { useNavigate} from 'react-router-dom';
+import {Box, Flex, useColorModeValue, Button, Stack, useColorMode, useDisclosure} from "@chakra-ui/react";
 import { AiOutlineHome } from "react-icons/ai";
 import { IoMdPhotos } from "react-icons/io";
-import { MoonIcon, SunIcon, ViewIcon, EditIcon, DownloadIcon, CloseIcon, AddIcon, QuestionIcon } from "@chakra-ui/icons";
+import { MoonIcon, SunIcon, ViewIcon, QuestionIcon } from "@chakra-ui/icons";
 
 
-import BasicButton from './ui/BasicButton';
 import NavBarButton from './ui/NavBarButton';
 import AboutSideBar from './AboutSideBar';
 import Logo from "./layout/Logo";
 
 
 
-const NavBarContainer = ({ children, ...props }) => {
+const NavBarContainer = ({ children }) => {
   return (
 
     <Box 
@@ -32,7 +29,6 @@ const NavBarContainer = ({ children, ...props }) => {
         maxH='20vh'
         mb={10}
         p={10}
-        // {...props}
       >
         {children}
       </Flex>

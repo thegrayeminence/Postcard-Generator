@@ -1,4 +1,3 @@
-import App from "./App";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";

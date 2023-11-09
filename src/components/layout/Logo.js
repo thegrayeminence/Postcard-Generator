@@ -1,4 +1,4 @@
-import { Image, Box, Spacer, Heading, useColorModeValue, HStack, Text, Tooltip } from "@chakra-ui/react";
+import { Image, Box, Heading, useColorModeValue, HStack } from "@chakra-ui/react";
 
 
 export default function Logo() {

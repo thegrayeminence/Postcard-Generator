@@ -1,5 +1,4 @@
-import { CardBody, Divider, Spacer, CardFooter, CardHeader, GridItemProps, GridProps, Box, Grid, GridItem, Card, Heading, Text, Stack, Flex, Image, Button, useColorModeValue } from "@chakra-ui/react"
-import gradient1 from '../assets/earlgray.png'
+import {Spacer, Box, Grid, GridItem, Heading, Text, Image, useColorModeValue } from "@chakra-ui/react"
 
 const GalleryCard = ({ card }) => {
 
@@ -12,7 +11,7 @@ const GalleryCard = ({ card }) => {
         fontFamily: 'avenir',
         lineHeight: '1.35rem',
 
-    }
+    };
 
     const fontStylesHeader = {
 
@@ -26,7 +25,7 @@ const GalleryCard = ({ card }) => {
         color: 'purple.700',
         fontSize: '1.2vw',
 
-    }
+    };
 
     const fontStylesDetail = {
 
@@ -39,7 +38,7 @@ const GalleryCard = ({ card }) => {
         color: 'blackAlpha.700',
         fontSize: '1vw',
 
-    }
+    };
 
     const { name, address, sender, message, subject, image_url } = card;
     return (

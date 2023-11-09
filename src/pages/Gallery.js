@@ -1,9 +1,8 @@
 
-import { Heading, SimpleGrid, Text, Card, Spacer, Stack, Flex, Box, useColorModeValue } from "@chakra-ui/react"
+import { Heading, SimpleGrid, Box, useColorModeValue } from "@chakra-ui/react"
 import GalleryCard from "../components/GalleryCard"
 import { useOutletContext } from "react-router-dom"
-import blackBackdrop from '../assets/blackgallerybackdrop.jpg'
-import whiteBackdrop from '../assets/whitegallerybackdrop.jpg'
+
 
 const Gallery = () => {
 
@@ -33,7 +32,6 @@ return(
                 fontSize='6xl'
                 fontFamily={'avenir'}
                 fontWeight='extrabold'
-                //filter='auto'
                         backdropFilter='auto'
                         filter='drop-shadow(0.035em 0.050em .1rem #00f)'
                         transition='all 0.2s cubic-bezier(.08,.52,.52,1)'

@@ -1,6 +1,5 @@
-import { Outlet, Navigate, useNavigate } from 'react-router-dom';
+import { Outlet} from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-import { useDisclosure, UseDisclosureProps } from '@chakra-ui/react';
 
 import NavBar from '../components/NavBar';
 

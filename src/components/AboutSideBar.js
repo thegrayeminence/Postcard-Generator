@@ -1,7 +1,6 @@
 import { FaGithub } from "react-icons/fa6";
-import {Drawer, DrawerOverlay, DrawerContent, DrawerBody, DrawerHeader, 
-  DrawerCloseButton, Icon, Spacer, useColorModeValue, Text
-} from "@chakra-ui/react";
+import {Drawer, DrawerOverlay, DrawerContent, DrawerBody, 
+  DrawerHeader, DrawerCloseButton, Icon, Spacer, Text} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 

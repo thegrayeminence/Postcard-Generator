@@ -1,7 +1,7 @@
 
-import { Outlet, useOutletContext, Navigate, useNavigate } from 'react-router-dom';
+import {useOutletContext} from 'react-router-dom';
 import React, { useState } from 'react';
-import { useColorModeValue, Drawer, DrawerOverlay, DrawerContent, DrawerBody, DrawerHeader, DrawerFooter, Heading, Stack, Box, Flex, Spacer, useDisclosure } from "@chakra-ui/react"
+import { useColorModeValue, Box, Flex, Spacer} from "@chakra-ui/react"
 
 
 import CardEditorForm from "../components/CardEditorForm";
@@ -24,7 +24,6 @@ const PostCardPreview = ({ stampOn, borderOn }) => {
 
         <>
             <CardContentBox children={<CardPreviewBox borderOn={borderOn} stampOn={stampOn} />}
-            // header={subject}
             />
         </>
     )

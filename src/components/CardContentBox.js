@@ -1,4 +1,4 @@
-import { useColorModeValue, useColorMode } from "@chakra-ui/react";
+import { useColorModeValue } from "@chakra-ui/react";
 import { Box, Heading } from "@chakra-ui/react"
 
 
