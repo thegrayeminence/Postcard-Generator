@@ -16,7 +16,7 @@ return(
     overflow="hidden"
     minH='100vh'
     py={'2.5rem'}
-    width='full'
+    width='100vw'
     mt='-10'
                 bgGradient={useColorModeValue(
                     'linear(to-t, #9795f0, #fbc8d4)',
@@ -31,10 +31,15 @@ return(
                 textAlign={'center'}
                 fontSize='5xl'
                 fontWeight='extrabold'
-               
+                //filter='auto'
+                        backdropFilter='auto'
+                        filter='
+                        drop-shadow(0.035em 0.050em .1rem #000)'
+
+                        
             >POSTCARD GALLERY:</Heading>
 
-        <SimpleGrid justify='center' pt={'2rem'} ml='10%' width='80%' columns={2} spacing='2.5rem'>
+        <SimpleGrid  align={'space-between'} justify='center' pt={'2rem'} ml='25%' width='50%'  columns={1} spacing='2rem'>
          
             {cards.map((card)=> <GalleryCard key={card.id} card={card}/>)}
            
